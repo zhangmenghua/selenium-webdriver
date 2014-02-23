@@ -8,23 +8,23 @@ dr=webdriver.Chrome()
 file_path='file:///'+os.path.abspath('checkbox.html')
 dr.get(file_path)
 # 选择所有的checkbox并全部勾上
-checkboxs=dr.find_element_by_css_selector('input[type=checkbox]')
+checkboxs=dr.find_elements_by_css_selector('input[type=checkbox]')
 for checkbox in checkboxs:
 	checkbox.click()
-time.sleep(1)
-dr.refresh(1)
-time.sleep(2)
+sleep(1)
+dr.refresh()
+sleep(2)
 
 # 打印当前页面上有多少个checkbox
-print len(dr.find_element_by_css_selector('input[type=checkbox]'))
+print len(dr.find_elements_by_css_selector('input[type=checkbox]'))
 
 # 选择页面上所有的input，然后从中过滤出所有的checkbox并勾选之
-inputs=dr.find_element_by_tag_name('input')
+inputs=dr.find_elements_by_tag_name('input')
 for input in inputs:
 	if input.get_attribute('type')=='checkbox':
 		input.click()
 sleep(1)
 # 把页面上最后1个checkbox的勾给去掉
-dr.find_element_by_css_selector('input[type=checkbox]').pop().click()
+dr.find_elements_by_css_selector('input[type=checkbox]').pop().click()
 sleep(2)
 dr.quit()

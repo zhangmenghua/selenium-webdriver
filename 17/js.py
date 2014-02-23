@@ -12,7 +12,7 @@ dr.execute_script('$("#tooltip").fadeOut();')
 sleep(1)
 
 button=dr.find_element_by_class_name('btn')
-dr.execute_script('$(arguments[0].fadeOut()',button)
+dr.execute_script('$(arguments[0]).fadeOut()',button)
 sleep(1)
 
 dr.quit()
