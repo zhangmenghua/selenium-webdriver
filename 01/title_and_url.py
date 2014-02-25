@@ -1,0 +1,15 @@
+#coding=utf-8
+#打印当前页面的title及url
+from selenium import webdriver
+from time import sleep
+
+dr = webdriver.Chrome()
+url = 'http://www.baidu.com'
+dr.get(url)
+
+print "title of current page is %s"  %(dr.title)
+print "url of current page is %s"  %(dr.current_url)
+
+sleep(1)
+
+dr.quit()
